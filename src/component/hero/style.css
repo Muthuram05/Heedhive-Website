@@ -1,0 +1,30 @@
+.hero-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-inline: 80px;
+    padding-top: 40px;
+    padding-bottom: 140px;
+
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content-wrapper h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.content-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    width: 65%;
+    text-align: center;
+}

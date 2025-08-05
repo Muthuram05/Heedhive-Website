@@ -1,0 +1,50 @@
+.service-container{
+    margin-top: 60px;
+}
+
+.service-container h1 {
+    text-align: center;
+}
+
+.service-card-renderer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 140px;
+    gap: 40px;
+}
+
+/* card */
+.card {
+    width: 350px;
+    height: 700px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card img{
+    width: 350px;
+    height: 400px;
+}
+
+.card-description {
+    height: 140px;
+}
+
+.card-button {
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.card-button:hover {
+    padding: 10px 20px;
+    border: 1px solid black;
+    background-color: #000000;
+    transition: 0.5s;
+    color: #fff;
+    border-radius: 9999px;
+    cursor: pointer;
+}
