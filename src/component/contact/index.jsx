@@ -1,6 +1,17 @@
 import { useRef, useState } from 'react';
 import emailjs from "emailjs-com";
 
+const socialLinks = [
+  {
+    name: 'linkedin',
+    url: 'https://www.linkedin.com/company/heedhive/',
+  },
+  {
+    name: 'instagram',
+    url: 'https://www.instagram.com/heedhive?igsh=azFsN2RyZGEyeTR1',
+  },
+];
+
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,13 +21,6 @@ export function ContactSection() {
   });
 
   const form = useRef();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
 
   const handleChange = (e) => {
     setFormData({
@@ -198,15 +202,16 @@ export function ContactSection() {
 
     emailjs
       .sendForm(
-        "service_rkmwe9v", // replace with your Service ID
-        "template_eygavmv", // replace with your Template ID
+        "service_rkmwe9v",
+        "template_eygavmv",
         form.current,
-        "U9__eJ703wlK1fm_O"   // replace with your Public Key
+        "U9__eJ703wlK1fm_O"
       )
       .then(
         (result) => {
           console.log("SUCCESS!", result.text);
           alert("Message sent successfully ✅");
+          setFormData({ name: '', email: '', subject: '', message: '' });
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -275,10 +280,12 @@ export function ContactSection() {
               <div>
                 <h3 style={styles.infoTitle}>Follow Us</h3>
                 <div style={styles.socialContainer}>
-                  {['linkedin', 'twitter', 'facebook', 'instagram'].map((social) => (
+                  {socialLinks.map((social) => (
                     <a 
                       key={social} 
-                      href="https://www.instagram.com/heedhive?igsh=azFsN2RyZGEyeTR1" 
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={styles.socialLink}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = 'rgba(255, 215, 0, 0.3)';
@@ -287,7 +294,7 @@ export function ContactSection() {
                         e.currentTarget.style.backgroundColor = 'rgba(255, 215, 0, 0.2)';
                       }}
                     >
-                      <span style={styles.socialText}>{social[0]}</span>
+                      <span style={styles.socialText}>{social.name[0]}</span>
                     </a>
                   ))}
                 </div>
@@ -295,7 +302,7 @@ export function ContactSection() {
             </div>
             
             <div style={styles.formCard}>
-              <form onSubmit={handleSubmit} style={styles.form} ref={form}>
+              <form style={styles.form} ref={form}>
                 <div style={{...styles.formRow, ...styles.formRowMd}}>
                   <div style={styles.formGroup}>
                     <label htmlFor="name" style={styles.label}>Name</label>
