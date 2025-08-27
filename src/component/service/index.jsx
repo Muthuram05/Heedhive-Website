@@ -1,68 +1,176 @@
-import React from "react";
-import { Card } from "./card";
+export function ServicesSection() {
+  const services = [
+    {
+      title: "Personal branding",
+      description: "We can help you find your true potential with our personal branding services. We can help you stand out and make a lasting impact by creating interesting content and building a strong online presence.",
+      icon: "💡",
+      image: "Personal branding"
+    },
+    {
+      title: "Website build and management",
+      description: "We build websites that are as effective as our clients are. Our website building and management services ensure a sleek, user-friendly design with seamless functionality to keep your audience engaged and your business growing.",
+      icon: "🌐",
+      image: "Website build and management"
+    },
+    {
+      title: "Social media marketing",
+      description: "We craft engaging content and run targeted ad campaigns to help brands grow on platforms like Instagram, Facebook, LinkedIn, and YouTube. Our SMM approach builds awareness, drives engagement, and converts audiences into loyal customers. With data-driven strategies and creative storytelling, we turn attention into measurable business results.",
+      icon: "📱",
+      image: "Social media marketing"
+    }
+  ];
 
-import "./style.css";
+  const styles = {
+    section: {
+      padding: '5rem 0',
+      backgroundColor: 'var(--background)'
+    },
+    container: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '0 1rem'
+    },
+    textCenter: {
+      textAlign: 'center' ,
+      marginBottom: '4rem'
+    },
+    title: {
+      fontSize: 'clamp(2rem, 5vw, 2.5rem)',
+      marginBottom: '1.5rem',
+      color: 'var(--primary)'
+    },
+    subtitle: {
+      fontSize: '1.125rem',
+      color: '#cccccc',
+      maxWidth: '32rem',
+      margin: '0 auto',
+      lineHeight: '1.6'
+    },
+    grid: {
+      display: 'grid',
+      gridTemplateColumns: '1fr',
+      gap: '2rem'
+    },
+    gridMd: {
+      gridTemplateColumns: 'repeat(2, 1fr)'
+    },
+    gridLg: {
+      gridTemplateColumns: 'repeat(3, 1fr)'
+    },
+    card: {
+      backgroundColor: 'var(--card)',
+      borderRadius: '1rem',
+      overflow: 'hidden',
+      transition: 'all 0.3s ease',
+      cursor: 'pointer'
+    },
+    cardHover: {
+      transform: 'scale(1.05)'
+    },
+    imageContainer: {
+      aspectRatio: '16/9',
+      background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, transparent 100%)',
+      padding: '1rem'
+    },
+    image: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover' ,
+      borderRadius: '0.5rem'
+    },
+    cardContent: {
+      padding: '1.5rem'
+    },
+    icon: {
+      fontSize: '1.875rem',
+      marginBottom: '1rem',
+      display: 'block'
+    },
+    cardTitle: {
+      fontSize: '1.25rem',
+      marginBottom: '0.75rem',
+      color: 'var(--primary)'
+    },
+    cardDescription: {
+      color: '#cccccc',
+      lineHeight: '1.7',
+      marginBottom: '1rem'
+    },
+    learnMore: {
+      color: 'var(--primary)',
+      background: 'none',
+      border: 'none',
+      cursor: 'pointer',
+      display: 'inline-flex',
+      alignItems: 'center',
+      transition: 'color 0.3s ease',
+      fontSize: '1rem'
+    },
+    arrow: {
+      width: '1rem',
+      height: '1rem',
+      marginLeft: '0.25rem'
+    }
+  };
 
-export function Service() {
   return (
-    <div className="service-container">
-      <h1>Our Services</h1>
-      <div className="service-card-renderer">
-        <Card
-          image={
-            "https://static.wixstatic.com/media/d05a10_63c8c4dc73814239a169ff058bdd40f7~mv2.jpg/v1/crop/x_0,y_273,w_736,h_1032/fill/w_570,h_800,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Personal%20Branding%205.jpg"
-          }
-          title={"Personal Branding"}
-          description={
-            "We can help you find your true potential with our personal branding services. We can help you stand out and make a lasting impact by creating interesting content and building a strong online presence."
-          }
-        />
-        <Card
-          image={
-            "https://static.wixstatic.com/media/d05a10_24fa306682204e71a8afab3c521d33de~mv2.jpg/v1/fill/w_570,h_800,fp_0.54_0.44,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/All%20Personal%20Branding.jpg"
-          }
-          title={"ADS"}
-          description={
-            "Maximize your reach and boost sales with our targeted ad solutions. We develop data-driven campaigns that are tailored to the desired audience, ensuring your brand receives the necessary attention and achieves its goals."
-          }
-        />
-        <Card
-          image={
-            "https://static.wixstatic.com/media/d05a10_071cbe10431f46ab973b65031e8c808c~mv2.jpg/v1/crop/x_88,y_0,w_394,h_552/fill/w_472,h_662,fp_0.50_0.50,lg_1,q_80,enc_avif,quality_auto/Website%201.jpg"
-          }
-          title={"Website Building And Management"}
-          description={
-            "We build websites that are as effective as our clients are. Our website building and management services ensure a sleek, user-friendly design with seamless functionality to keep your audience engaged and your business growing."
-          }
-        />
-        <Card
-          image={
-            "https://static.wixstatic.com/media/d05a10_8bc5f6dffcf54775be511aef43beab02~mv2.jpg/v1/crop/x_2018,y_0,w_1576,h_2666/fill/w_570,h_966,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/online-networking-handshake-marketing-remixed-media-background.jpg"
-          }
-          title={"Media Partner"}
-          description={
-            "We invite you to consider a partnership with us to expand the reach of your brand. Our media partner services connect you with the right platforms, ensuring your videos or content reaches a wider audience and drives impactful results."
-          }
-        />
-        <Card
-          image={
-            "https://static.wixstatic.com/media/d05a10_e50a19738cf24216b0d059dfbc4b32b2~mv2.jpg/v1/crop/x_0,y_35,w_405,h_685/fill/w_485,h_822,fp_0.50_0.50,lg_1,q_85,enc_avif,quality_auto/Video%20editing%203%20.jpg"
-          }
-          title={"Video Editing"}
-          description={
-            "Our video editing services will bring your vision to life. We create engaging, high-quality videos that captivate your audience and leave a lasting impression."
-          }
-        />
-        <Card
-          image={
-            "https://static.wixstatic.com/media/d05a10_f83a9cf38c2c43c08cc3448db62abe33~mv2.webp/v1/fill/w_370,h_626,al_c,lg_1,q_80,enc_avif,quality_auto/content-writing-isometric-stock-illustration-eps-file-stock-illustration_357500-5024.webp"
-          }
-          title={"Content writing"}
-          description={
-            "Create interesting stories that your audience will enjoy. Our content writing services create clear, interesting, and effective copy that will make your brand more popular and get results."
-          }
-        />
+    <section id="services" style={styles.section}>
+      <div style={styles.container}>
+        <div style={styles.textCenter}>
+          <h2 style={styles.title}>Our Services</h2>
+          <p style={styles.subtitle}>
+            We offer a comprehensive range of services designed to accelerate your business growth 
+            and digital transformation journey.
+          </p>
+        </div>
+        
+        <div style={{
+          ...styles.grid,
+          ...styles.gridMd,
+          ...styles.gridLg
+        }}>
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              style={styles.card}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+            >
+              <div style={styles.imageContainer}>
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt={service.image}
+                  style={styles.image}
+                />
+              </div>
+              
+              <div style={styles.cardContent}>
+                <div style={styles.icon}>{service.icon}</div>
+                <h3 style={styles.cardTitle}>{service.title}</h3>
+                <p style={styles.cardDescription}>{service.description}</p>
+                <button 
+                  style={styles.learnMore}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'rgba(255, 215, 0, 0.8)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--primary)';
+                  }}
+                >
+                  Learn More
+                  <svg style={styles.arrow} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
