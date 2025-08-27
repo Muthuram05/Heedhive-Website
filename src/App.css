@@ -129,6 +129,10 @@
   }
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
 /**
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */
