@@ -1,5 +1,3 @@
-import { Logo } from "../../assest/logo.png";
-
 export function AboutSection() {
   const styles = {
     section: {

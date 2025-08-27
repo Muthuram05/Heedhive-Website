@@ -1,25 +1,7 @@
-export function ServicesSection() {
-  const services = [
-    {
-      title: "Personal branding",
-      description: "We can help you find your true potential with our personal branding services. We can help you stand out and make a lasting impact by creating interesting content and building a strong online presence.",
-      icon: "💡",
-      image: "Personal branding"
-    },
-    {
-      title: "Website build and management",
-      description: "We build websites that are as effective as our clients are. Our website building and management services ensure a sleek, user-friendly design with seamless functionality to keep your audience engaged and your business growing.",
-      icon: "🌐",
-      image: "Website build and management"
-    },
-    {
-      title: "Social media marketing",
-      description: "We craft engaging content and run targeted ad campaigns to help brands grow on platforms like Instagram, Facebook, LinkedIn, and YouTube. Our SMM approach builds awareness, drives engagement, and converts audiences into loyal customers. With data-driven strategies and creative storytelling, we turn attention into measurable business results.",
-      icon: "📱",
-      image: "Social media marketing"
-    }
-  ];
+import { Link } from 'react-router-dom';
+import { services } from './data';
 
+export function ServicesSection() {
   const styles = {
     section: {
       padding: '5rem 0',
@@ -104,7 +86,8 @@ export function ServicesSection() {
       display: 'inline-flex',
       alignItems: 'center',
       transition: 'color 0.3s ease',
-      fontSize: '1rem'
+      fontSize: '1rem',
+      textDecoration: 'none'
     },
     arrow: {
       width: '1rem',
@@ -152,7 +135,8 @@ export function ServicesSection() {
                 <div style={styles.icon}>{service.icon}</div>
                 <h3 style={styles.cardTitle}>{service.title}</h3>
                 <p style={styles.cardDescription}>{service.description}</p>
-                <button 
+                <Link 
+                  to={`/service/${service.id}`}
                   style={styles.learnMore}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = 'rgba(255, 215, 0, 0.8)';
@@ -165,7 +149,7 @@ export function ServicesSection() {
                   <svg style={styles.arrow} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -174,3 +158,25 @@ export function ServicesSection() {
     </section>
   );
 }
+
+// Responsive styles
+const mediaQueryMd = '@media (min-width: 768px)';
+const mediaQueryLg = '@media (min-width: 1024px)';
+
+const responsiveStyles = `
+  ${mediaQueryMd} {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  ${mediaQueryLg} {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = responsiveStyles;
+document.head.appendChild(styleSheet);

@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import companyLogo from '../../assest/logo-gold.png';
 
 export function NavBar() {
   const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -12,10 +15,14 @@ export function NavBar() {
     { id: 'contact', label: 'Contact' },
   ];
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigate = (sectionId) => {
+    if (location.pathname !== '/') {
+      navigate(`/#${sectionId}`);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -36,9 +43,21 @@ export function NavBar() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    if (location.pathname === '/') {
+      window.addEventListener('scroll', handleScroll);
+      if (location.hash) {
+        setTimeout(() => {
+          const element = document.getElementById(location.hash.substring(1));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   const navStyles = {
     nav: {
@@ -65,7 +84,8 @@ export function NavBar() {
     logoContainer: {
       display: 'flex',
       alignItems: 'center',
-      color: 'var(--primary)'
+      color: 'var(--primary)',
+      textDecoration: 'none'
     },
     logo: {
       width: '40px',
@@ -92,7 +112,8 @@ export function NavBar() {
       cursor: 'pointer',
       transition: 'color 0.3s ease',
       fontSize: '1rem',
-      fontWeight: 'var(--font-weight-medium)'
+      fontWeight: 'var(--font-weight-medium)',
+      textDecoration: 'none'
     },
     navButtonActive: {
       color: 'var(--primary)'
@@ -117,20 +138,20 @@ export function NavBar() {
     <nav style={navStyles.nav}>
       <div style={navStyles.container}>
         <div style={navStyles.navContent}>
-          <div style={navStyles.logoContainer}>
+          <Link to="/" style={navStyles.logoContainer}>
             <img 
               src={companyLogo} 
               alt="Company Logo" 
               style={navStyles.logo}
             />
             <h3 style={navStyles.companyName}>Heedhive</h3>
-          </div>
+          </Link>
           
           <div style={{...navStyles.navLinks, ...navStyles.navLinksDesktop}}>
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigate(item.id)}
                 style={{
                   ...navStyles.navButton,
                   ...(activeSection === item.id ? navStyles.navButtonActive : {})

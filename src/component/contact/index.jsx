@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import emailjs from "emailjs-com";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ export function ContactSection() {
     subject: '',
     message: ''
   });
+
+  const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -190,6 +193,28 @@ export function ContactSection() {
     }
   };
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_rkmwe9v", // replace with your Service ID
+        "template_eygavmv", // replace with your Template ID
+        form.current,
+        "U9__eJ703wlK1fm_O"   // replace with your Public Key
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          alert("Message sent successfully ✅");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          alert("Failed to send message ❌");
+        }
+      );
+  };
+
   return (
     <section id="contact" style={styles.section}>
       <div style={styles.container}>
@@ -270,7 +295,7 @@ export function ContactSection() {
             </div>
             
             <div style={styles.formCard}>
-              <form onSubmit={handleSubmit} style={styles.form}>
+              <form onSubmit={handleSubmit} style={styles.form} ref={form}>
                 <div style={{...styles.formRow, ...styles.formRowMd}}>
                   <div style={styles.formGroup}>
                     <label htmlFor="name" style={styles.label}>Name</label>
@@ -365,6 +390,7 @@ export function ContactSection() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'var(--primary)';
                   }}
+                  onClick={sendEmail}
                 >
                   Send Message
                 </button>
