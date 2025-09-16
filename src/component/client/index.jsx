@@ -24,9 +24,9 @@ export function ClientsSection() {
     // }
   ];
 
-  const clientLogos = [
-    "Company A", "Company B", "Company C", "Company D", "Company E", "Company F"
-  ];
+  // const clientLogos = [
+  //   "Company A", "Company B", "Company C", "Company D", "Company E", "Company F"
+  // ];
 
   return (
     <section id="clients" className={styles.section}>
