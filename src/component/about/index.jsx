@@ -120,7 +120,7 @@ export function AboutSection() {
 
               <div style={styles.statsContainer}>
                 <div style={styles.statItem}>
-                  <div style={styles.statNumber}>6 months</div>
+                  <div style={styles.statNumber}>1+</div>
                   <div style={styles.statLabel}>Years Experience</div>
                 </div>
                 <div style={styles.statItem}>
