@@ -1,5 +1,7 @@
 import styles from './style.module.css';
 
+import why_image from "../../assest/WHY.png"
+
 export function AboutSection() {
   return (
     <section id="about" className={styles.section}>
@@ -51,7 +53,7 @@ export function AboutSection() {
             <div className={styles.imageContainer}>
               <div className={styles.imageWrapper}>
                 <img
-                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  src={why_image}
                   alt="Modern office workspace"
                   className={styles.image}
                 />

@@ -1,5 +1,8 @@
 import styles from './style.module.css';
 
+import johannas_world from "../../assest/johannas_world.png"
+import leading_edge from "../../assest/leading_edge.png"
+
 export function ClientsSection() {
   const testimonials = [
     {
@@ -7,14 +10,16 @@ export function ClientsSection() {
       position: "Founder of Leading Edge Institute",
       content: "The overall shooting process was well-organized and executed professionally. The team captured the content creatively, focusing on both visuals and clarity.The digital marketing approach they suggested was modern and effective.The editing and final output were of good quality, making the videos engaging.The shoot added value to our institute’s promotion and created a positive impression.😘Thank u So much team great work ✨",
       avatar: "professional woman portrait",
-      domain: "Education"
+      domain: "Education",
+      imageUrl: leading_edge
     },
     {
       name: "Tamil Priya",
       position: "Founder of Johannas World",
       content: "Heedhive completely transformed my Instagram journey. I had no idea where to start, but their guidance, creative content, and constant motivation gave me the confidence to create videos and share them online. My friends and family loved the results, and now I’m excited to continue making videos with their support!",
       avatar: "professional man portrait",
-      domain: "Reselling"
+      domain: "Reselling",
+      imageUrl: johannas_world
     },
     // {
     //   name: "Emily Rodriguez",
@@ -52,9 +57,10 @@ export function ClientsSection() {
               <div className={styles.userInfo}>
                 <div className={styles.avatar}>
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                    src={testimonial.imageUrl}
                     alt={testimonial.avatar}
                     className={styles.avatarImage}
+                    width={"24px"}
                   />
                 </div>
                 <div>

@@ -2,14 +2,19 @@ import { useRef, useState } from 'react';
 import emailjs from "emailjs-com";
 import styles from './style.module.css';
 
+import linked_in from "../../assest/in.png"
+import instagram from "../../assest/insta.png"
+
 const socialLinks = [
   {
     name: 'linkedin',
     url: 'https://www.linkedin.com/company/heedhive/',
+    icon: linked_in
   },
   {
     name: 'instagram',
     url: 'https://www.instagram.com/heedhive?igsh=azFsN2RyZGEyeTR1',
+    icon: instagram
   },
 ];
 
@@ -91,7 +96,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className={styles.infoLabel}>Email</p>
-                      <p className={styles.infoValue}>contact.heedhive@gmail.com</p>
+                      <a className={styles.infoValue} href='mailto:contact.heedhive@gmail.com'>contact.heedhive@gmail.com</a>
                     </div>
                   </div>
                   
@@ -121,7 +126,7 @@ export function ContactSection() {
                       rel="noopener noreferrer"
                       className={styles.socialLink}
                     >
-                      <span className={styles.socialText}>{social.name[0]}</span>
+                      <img className={styles.socialText} alt={social.icon} src={social.icon} width={"24px"}/>
                     </a>
                   ))}
                 </div>

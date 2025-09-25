@@ -99,6 +99,8 @@
 .infoValue {
   color: #cccccc;
   margin: 0;
+  text-decoration: none !important;
+  
 }
 
 /* Social Links */
