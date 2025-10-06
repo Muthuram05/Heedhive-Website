@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 
 export function Footer() {
@@ -12,14 +13,14 @@ export function Footer() {
             </p>
           </div>
           
-          <div className={styles.linkSection}>
+          <div id="quick-links" className={styles.linkSection}>
             <h4 className={styles.sectionTitle}>Quick Links</h4>
             <div className={styles.linkList}>
-              <a href="#home" className={styles.link}>Home</a>
-              <a href="#about" className={styles.link}>About</a>
-              <a href="#services" className={styles.link}>Services</a>
-              <a href="#clients" className={styles.link}>Clients</a>
-              <a href="#contact" className={styles.link}>Contact</a>
+              <Link to="/#home"  className={styles.link}>Home</Link>
+              <Link to="/#about" className={styles.link}>About</Link>
+              <Link to="/#services" className={styles.link}>Services</Link>
+              <Link to="/#clients" className={styles.link}>Clients</Link>
+              <Link to="/#contact" className={styles.link}>Contact</Link>
             </div>
           </div>
           
