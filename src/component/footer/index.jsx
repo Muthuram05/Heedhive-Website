@@ -27,9 +27,9 @@ export function Footer() {
           <div className={styles.linkSection}>
             <h4 className={styles.sectionTitle}>Services</h4>
             <div className={styles.linkList}>
-              <a href="#services" className={styles.serviceItem}>Personal branding</a>
-              <a href="#services" className={styles.serviceItem}>Website build and management</a>
-              <a href="#services" className={styles.serviceItem}>Social media marketing</a>
+              <Link to="/#services" className={styles.serviceItem}>Personal branding</Link>
+              <Link to="/#services" className={styles.serviceItem}>Website build and management</Link>
+              <Link to="/#services" className={styles.serviceItem}>Social media marketing</Link>
             </div>
           </div>
           
